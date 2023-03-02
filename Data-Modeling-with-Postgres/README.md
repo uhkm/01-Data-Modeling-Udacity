@@ -56,9 +56,6 @@ Using the song and log datasets, you'll need to create a star schema optimized f
 
 ## How to run this project
 
-* You can individually run below in working directory for modeling
-    >       python create_tables.py
-    >       python etl.py
 * I also created a main.py that internally calls both of the above files, run below command in working directory:
     >       python main.py
 
