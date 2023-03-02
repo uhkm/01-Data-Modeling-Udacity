@@ -101,8 +101,8 @@ SET location = EXCLUDED.location,
 
 
 time_table_insert = ("""
-INSERT INTO time (start_time, user_id, level, song_id, artist_id, session_id, location, user_agent) 
-VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+INSERT INTO time (start_time, user_id, level, song_id, artist_id, session_id, location) 
+VALUES (%s, %s, %s, %s, %s, %s, %s)
 """)
 
 # FIND SONGS
