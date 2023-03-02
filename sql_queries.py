@@ -84,14 +84,14 @@ SET level =  EXCLUDE.level
 song_table_insert = ("""
 INSERT INTO songs (song_id, title, artist_id, year, duration) 
 VALUES (%s, %s, %s, %s, %s)
-ON CONLFICT (user_id)
+ON CONLFICT (song_id)
 DO NOTHING
 """)
 
 artist_table_insert = ("""
 INSERT INTO artists (artist_id, name, location, latitude, longitude) 
 VALUES (%s, %s, %s, %s, %s)
-ON CONLFICT (user_id)
+ON CONLFICT (artist_id)
 DO UPDATE
 SET user_id =  EXCLUDE.user_id
 """)
