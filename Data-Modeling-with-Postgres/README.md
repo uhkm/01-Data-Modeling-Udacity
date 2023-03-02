@@ -59,3 +59,12 @@ Using the song and log datasets, you'll need to create a star schema optimized f
 * I also created a main.py that internally calls both of the above files, run below command in working directory:
     >       python main.py
 
+## References
+[SQLAlchemy for ERDiagram](https://sarathlal.com/convert-sqlalchemy-db-model-into-entity-relationship-diagram-python/)
+[pip freeze](https://stackoverflow.com/questions/54931275/pip-freeze-local)
+[Markdown Guide](https://www.markdownguide.org/basic-syntax/#paragraphs-1)
+[Pandas DataFrame](https://www.geeksforgeeks.org/python-pandas-dataframe-loc/)
+
+### Probable issue and links to fix them
+[psycopg2 can't adapt tyoe int64 or uni32](https://devpress.csdn.net/python/6304c8c2c67703293080df4e.html)
+[iterrows() index error](https://stackoverflow.com/questions/47665812/index-out-of-bound-when-iterrow-how-is-this-possible)
