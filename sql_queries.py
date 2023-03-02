@@ -115,7 +115,8 @@ FROM SONGS S
 JOIN ARTISTS A
 ON S.artist_id = A.artist_id
 WHERE S.song_id = %s
-and a.name = %s
+and A.name = %s
+and S.duration = %s
 """)
 
 # QUERY LISTS
