@@ -1,1 +1,5 @@
+# Ignoring runtime cache files and checkpoints generated
 __pycache__
+.ipynb_checkpoints
+# Ignoring the virtual environment created for getting the requirements.txt for dependencies
+venv
