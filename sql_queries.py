@@ -32,11 +32,12 @@ CREATE TABLE IF NOT EXISTS users
                  level VARCHAR NOT NULL)
 """)
 
+# REFERENCES artists (artist_id)
 song_table_create = ("""
 CREATE TABLE IF NOT EXISTS songs
                 (song_id VARCHAR CONSTRAINT pk_songs PRIMARY KEY, 
                  title TEXT, 
-                 artist_id VARCHAR REFERENCES artists (artist_id), 
+                 artist_id VARCHAR, 
                  year INT, 
                  duration NUMERIC,
                  CONSTRAINT ck_songsYearGreaterThanZero CHECK (year>=0))
@@ -92,8 +93,10 @@ artist_table_insert = ("""
 INSERT INTO artists (artist_id, name, location, latitude, longitude) 
 VALUES (%s, %s, %s, %s, %s)
 ON CONFLICT (artist_id)
-DO UPDATE
-SET user_id =  EXCLUDE.user_id
+DO UPDATE 
+SET location = EXCLUDED.location,
+    latitude = EXCLUDED.latitude,
+    longitude = EXCLUDED.longitude
 """)
 
 
