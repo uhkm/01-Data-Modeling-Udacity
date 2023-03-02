@@ -94,9 +94,9 @@ INSERT INTO artists (artist_id, name, location, latitude, longitude)
 VALUES (%s, %s, %s, %s, %s)
 ON CONFLICT (artist_id)
 DO UPDATE 
-SET location = EXCLUDED.location,
-    latitude = EXCLUDED.latitude,
-    longitude = EXCLUDED.longitude
+SET longitude = EXCLUDED.longitude,
+    location = EXCLUDED.location,
+    latitude = EXCLUDED.latitude
 """)
 
 
