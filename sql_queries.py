@@ -101,7 +101,7 @@ SET location = EXCLUDED.location,
 
 
 time_table_insert = ("""
-INSERT INTO time (start_time, user_id, level, song_id, artist_id, session_id, location) 
+INSERT INTO time (start_time, hour, day, week, month, year, weekday) 
 VALUES (%s, %s, %s, %s, %s, %s, %s)
 """)
 
