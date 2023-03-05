@@ -15,12 +15,12 @@ CREATE TABLE IF NOT EXISTS songplays
                 (songplay_id SERIAL CONSTRAINT pk_songPlays PRIMARY KEY, 
                  start_time BIGINT REFERENCES time (start_time), 
                  user_id INT REFERENCES users (user_id), 
-                 level VARCHAR, 
+                 level VARCHAR NOT NULL, 
                  song_id VARCHAR REFERENCES songs (song_id), 
                  artist_id VARCHAR REFERENCES artists (artist_id), 
                  session_id INT NOT NULL,  
-                 location VARCHAR, 
-                 user_agent VARCHAR)
+                 location VARCHAR NOT NULL, 
+                 user_agent VARCHAR NOT NULL)
 """)
 
 user_table_create = ("""
@@ -93,10 +93,7 @@ artist_table_insert = ("""
 INSERT INTO artists (artist_id, name, location, latitude, longitude) 
 VALUES (%s, %s, %s, %s, %s)
 ON CONFLICT (artist_id)
-DO UPDATE 
-SET longitude = EXCLUDED.longitude,
-    location = EXCLUDED.location,
-    latitude = EXCLUDED.latitude
+DO NOTHING
 """)
 
 
