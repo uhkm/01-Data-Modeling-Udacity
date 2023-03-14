@@ -49,7 +49,7 @@ Using the song and log datasets, you'll need to create a star schema optimized f
 * **ERDiagram.ipynb** contains the code to create the ERD for the connected data base and creates an image in the working directory with name **dbschema.png**.
 * **requirements.txt** has the required dependencies. 
     Created this file in a local virtual environment using 
-    >       pip freeze --local > requirements.txt)
+    >       pip freeze --local > requirements.txt
     Use below command to install dependencies of the project in your local branch:
     >       pip install -r requirements.txt
 * **README.md** provides discussion on my project.
