@@ -16,18 +16,13 @@ The directory of CSV files partitioned by date. Here are examples of filepaths t
 4. Test the table creation and data insertion using select queries on which the data base tables are built on
 
 ## Schema for table created using Query 1
-**Table Name:** music_app_history_by_session_item 
-
+>**Table Name:** music_app_history_by_session_item 
 **MetaData:** sessionId INT, artist TEXT, song TEXT, length FLOAT, itemInSession INT, PRIMARY KEY (sessionId, itemInSession)
-
 ## Schema for table created using Query 2
-**Table Name:** music_app_history_by_user_session 
-
+>**Table Name:** music_app_history_by_user_session 
 **MetaData:** userId INT,sessionId INT,itemInSession INT,artist TEXT,song TEXT,firstName TEXT,lastName TEXT,PRIMARY KEY (userId, sessionid, itemInSession)
-
 ## Schema for table created using Query 3
-**Table Name:** music_app_history_by_song 
-
+>**Table Name:** music_app_history_by_song 
 **MetaData:** song TEXT, firstname TEXT, lastname TEXT, PRIMARY KEY(song)
 
 ## Files in Project workspace
@@ -36,7 +31,9 @@ The directory of CSV files partitioned by date. Here are examples of filepaths t
     * "select artist, song, length from music_app_history_by_session_item where sessionId = 338 and itemInSession = 4"
     * "select artist, song, firstname, lastname from music_app_history_by_user_session where userId = 10 and sessionId = 182"
     * "select firstname, lastname from music_app_history_by_song where song = 'All Hands Against His Own'"
-
+* **event_data** folder with csv data sets
+* **.gitignore** ignoring files or folders that are irrelevant
+* **images** contains an image of the denormalized data processed from the ipynb file
 * **requirements.txt** has the required dependencies. 
     Created this file in a local virtual environment using 
     >       pip freeze --local > requirements.txt
