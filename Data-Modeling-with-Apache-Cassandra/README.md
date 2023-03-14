@@ -15,14 +15,19 @@ The directory of CSV files partitioned by date. Here are examples of filepaths t
 3. Loading the data into tables created using Apache Cassandra (CQL)
 4. Test the table creation and data insertion using select queries on which the data base tables are built on
 
-#### Schema for table created using Query 1
+## Schema for table created using Query 1
 **Table Name:** music_app_history_by_session_item 
+
 **MetaData:** sessionId INT, artist TEXT, song TEXT, length FLOAT, itemInSession INT, PRIMARY KEY (sessionId, itemInSession)
-#### Schema for table created using Query 2
+
+## Schema for table created using Query 2
 **Table Name:** music_app_history_by_user_session 
+
 **MetaData:** userId INT,sessionId INT,itemInSession INT,artist TEXT,song TEXT,firstName TEXT,lastName TEXT,PRIMARY KEY (userId, sessionid, itemInSession)
-#### Schema for table created using Query 3
+
+## Schema for table created using Query 3
 **Table Name:** music_app_history_by_song 
+
 **MetaData:** song TEXT, firstname TEXT, lastname TEXT, PRIMARY KEY(song)
 
 ## Files in Project workspace
