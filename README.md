@@ -8,7 +8,7 @@ Link: [Data-Modeling-with-Postgres](https://github.com/uhkm/Data-Engineering-Pro
 
 ## Project 2
 
-Link: [Data-Modeling-with-Postgres](https://github.com/uhkm/Data-Engineering-Projects/tree/main/Data-Modeling-with-Apache-Cassandra)
+Link: [Data-Modeling-with-Apache-Cassandra](https://github.com/uhkm/Data-Engineering-Projects/tree/main/Data-Modeling-with-Apache-Cassandra)
 > This project is aimed at implementing data modeling and building an ETL pipeline in Python using the cassandra-driver for Sparkify, a simulated start-up. The data is sourced from CSV files, and cassandra tables are created based on the queries used for analysis. Below are the queries that was used to build the database around:
   * Give the artist, song title and song's length in the music app history that was heard during sessionId = 338, and itemInSession = 4
   * Give only the following: name of artist, song (sorted by itemInSession) and user (first and last name) for userid = 10, sessionid = 182
