@@ -1,0 +1,32 @@
+IF NOT EXISTS (SELECT * FROM sys.external_file_formats WHERE name = 'SynapseDelimitedTextFormat') 
+	CREATE EXTERNAL FILE FORMAT [SynapseDelimitedTextFormat] 
+	WITH ( FORMAT_TYPE = DELIMITEDTEXT ,
+	       FORMAT_OPTIONS (
+			 FIELD_TERMINATOR = '|',
+			 USE_TYPE_DEFAULT = FALSE
+			))
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.external_data_sources WHERE name = 'adls2filesystemuhk_adls2uhk_dfs_core_windows_net') 
+	CREATE EXTERNAL DATA SOURCE [adls2filesystemuhk_adls2uhk_dfs_core_windows_net] 
+	WITH (
+		LOCATION = 'abfss://adls2filesystemuhk@adls2uhk.dfs.core.windows.net' 
+	)
+GO
+drop external table dbo.stage_payment;
+CREATE EXTERNAL TABLE dbo.stage_payment (
+	[payment_id] INTEGER,
+	[payment_date] DATE,
+	[amount] MONEY,
+	[rider_id] INTEGER
+	)
+	WITH (
+	LOCATION = 'payment.csv',
+	DATA_SOURCE = [adls2filesystemuhk_adls2uhk_dfs_core_windows_net],
+	FILE_FORMAT = [SynapseDelimitedTextFormat]
+	)
+GO
+
+
+SELECT TOP 100 * FROM dbo.stage_payment
+GO

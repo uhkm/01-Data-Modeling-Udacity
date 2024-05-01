@@ -1,0 +1,32 @@
+IF NOT EXISTS (SELECT * FROM sys.external_file_formats WHERE name = 'SynapseDelimitedTextFormat') 
+	CREATE EXTERNAL FILE FORMAT [SynapseDelimitedTextFormat] 
+	WITH ( FORMAT_TYPE = DELIMITEDTEXT ,
+	       FORMAT_OPTIONS (
+			 FIELD_TERMINATOR = '|',
+			 USE_TYPE_DEFAULT = FALSE
+			))
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.external_data_sources WHERE name = 'adls2filesystemuhk_adls2uhk_dfs_core_windows_net') 
+	CREATE EXTERNAL DATA SOURCE [adls2filesystemuhk_adls2uhk_dfs_core_windows_net] 
+	WITH (
+		LOCATION = 'abfss://adls2filesystemuhk@adls2uhk.dfs.core.windows.net' 
+	)
+GO
+drop EXTERNAL TABLE dbo.stage_station;
+CREATE EXTERNAL TABLE dbo.stage_station (
+	[station_id] varchar(50),
+	[name] varchar(75),
+	[latitude] float,
+	[longitude] float
+	)
+	WITH (
+	LOCATION = 'station.csv',
+	DATA_SOURCE = [adls2filesystemuhk_adls2uhk_dfs_core_windows_net],
+	FILE_FORMAT = [SynapseDelimitedTextFormat]
+	)
+GO
+
+
+SELECT TOP 100 * FROM dbo.stage_station
+GO
